@@ -1,0 +1,32 @@
+
+html {
+  background: grey;
+  height: 100%
+}
+
+body {
+  height: 100%;
+}
+
+h1 {
+  color: white;
+  text-align: center;
+}
+
+
+.gameboard {
+  height: 500px;
+  width: 500px;
+  background-color: white;
+  display: flex;
+  align-self: center;
+  margin: auto;
+  margin-top: 50px
+}
+
+.flexcontainer {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
