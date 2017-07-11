@@ -77,3 +77,13 @@ h1 {
   background-color: white;
   text-decoration: bold;
 }
+
+input {
+  border-style: dotted;
+}
+
+#enterword {
+  width: 100%;
+  font-size: 18px;
+  font-family: 'Inconsolata', monospace;
+}
