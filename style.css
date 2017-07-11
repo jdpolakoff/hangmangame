@@ -15,18 +15,34 @@ h1 {
 
 
 .gameboard {
-  height: 500px;
+  height: 400px;
   width: 500px;
   background-color: white;
   display: flex;
   align-self: center;
   margin: auto;
-  margin-top: 50px
+  margin-top: 10px;
+  border-radius: 25px;
 }
 
-.flexcontainer {
-  height: 100%;
+.letterselector {
+  height: 100px;
+  width: 500px;
+  background-color: white;
   display: flex;
+  align-self: center;
+  margin: auto;
+  margin-top: 50px;
+  border-radius: 25px
+}
+
+.input {
+  width: 300px;
+  height: 30px;
+  display: flex;
+  align-self: center;
   justify-content: center;
-  align-items: center
+  margin: auto;
+  margin-top: 50px;
+  border-radius: 25px
 }
