@@ -23,6 +23,7 @@ h1 {
   margin: auto;
   margin-top: 10px;
   border-radius: 25px;
+  border-style: dotted;
 }
 
 .letterselector {
@@ -32,8 +33,14 @@ h1 {
   display: flex;
   align-self: center;
   margin: auto;
-  margin-top: 50px;
-  border-radius: 25px
+  margin-top: 15px;
+  border-radius: 25px;
+  border-style: dotted;
+}
+
+.letters {
+  text-align: center;
+  font-size: 40px
 }
 
 .input {
@@ -43,6 +50,8 @@ h1 {
   align-self: center;
   justify-content: center;
   margin: auto;
-  margin-top: 50px;
-  border-radius: 25px
+  margin-top: 15px;
+  border-radius: 25px;
+  border-style: dotted;
+  background-color: white;
 }
