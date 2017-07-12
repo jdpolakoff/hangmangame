@@ -4,8 +4,8 @@ var input = $('input')
 var button = $('button')
 var refresh = $('.refresh')
 var letterBoard = $('.wordgoeshere')
+var splitInput = []
 var selectedLetters = []
-var splitInput
 var matchLetters = []
 var wrongLetters = []
 
@@ -20,7 +20,8 @@ var alphabet = {
     g: $('#g'),
     h: $('#h'),
     i: $('#i'),
-    j: $('#k'),
+    j: $('#j'),
+    k: $('#k'),
     l: $('#l'),
     m: $('#m'),
     n: $('#n'),
@@ -51,24 +52,46 @@ var handleInput = function (e){
       letterBoard.css('font-size', '56px')
       letterBoard.css('text-align', 'center')
   console.log(input.val().split(""))
+      splitInput = input.val().split("")
     }
 
+//$(.letters)
+
+// .every if every letter is in there, is every letter in split input in matchArray
+
+
+var renderLetters = function() {
+  var displayLetters = splitInput.map(function(letter){
+    if (matchLetters.includes(letter)){
+      return letter
+    } else {
+      return '_'
+    }
+  })
+  var displayWord = displayLetters.join('')
+  letterBoard.text(displayWord)
+}
 
 $.each(alphabet, function(key, value) {
-      var splitInput = input.val().split("")
       value.on('click', function (){
+        console.log(splitInput)
         selectedLetters.push(key)
         console.log(selectedLetters)
+        value.css('color', 'white')
         for (i = 0; i < selectedLetters.length; i++)
-          if (input.val().split("").includes(selectedLetters[i])) {
-        console.log('found a match')
+          if (splitInput.includes(selectedLetters[i])) {
+          console.log('found a match')
           matchLetters.push(selectedLetters[i])
+          renderLetters()
           } else {
-        console.log('no match')
-        wrongLetters.push(selectedLetters[i])
-            }
+          console.log('no match')
+          wrongLetters.push(selectedLetters[i])
+          renderLetters()
+          // renderMan() update dom with images
+          }
       })
     })
+
 
 
 
