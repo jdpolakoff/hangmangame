@@ -64,6 +64,8 @@ var renderLetters = function() {
   var displayLetters = splitInput.map(function(letter){
     if (matchLetters.includes(letter)){
       return letter
+    } else if (letter === ' ') {
+      return ' '
     } else {
       return '_'
     }
