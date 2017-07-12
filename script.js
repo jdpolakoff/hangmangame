@@ -2,6 +2,7 @@ console.log('im linked')
 
 var input = $('input')
 var button = $('button')
+var refresh = $('.refresh')
 var letterBoard = $('.wordgoeshere')
 
 //create function to take input and print it
@@ -21,13 +22,17 @@ var handleInput = function (e){
 //event listener for input to be printed when button pressed
 button.on('click', handleInput)
 
+//event listener to refresh padding-lef
+refresh.on('click', function () {
+  location.reload()})
+
 //create function that counts number of letters in input and creates gameboard
-var countLetters = function() {
+/*var countLetters = function() {
   input.val().length
   console.log(input.val().length)
 }
 
-countLetters()
+countLetters()*/
 
 
 
