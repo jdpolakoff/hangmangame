@@ -67,6 +67,7 @@ h1 {
   text-align: center;
   vertical-align: middle;
   font-size: 36px;
+  cursor: pointer;
 }
 
 .letters {
@@ -75,7 +76,7 @@ h1 {
 }
 
 .input {
-  width: 300px;
+  width: 500px;
   height: 30px;
   display: flex;
   align-self: center;
@@ -99,5 +100,6 @@ input {
    width: 40%;
    font-family: 'Inconsolata', monospace;
    border-radius: 25px;
-   font-size: 16px
+   font-size: 16px;
+   cursor: pointer;
  }
