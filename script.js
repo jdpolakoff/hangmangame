@@ -5,7 +5,9 @@ var button = $('button')
 var refresh = $('.refresh')
 var letterBoard = $('.wordgoeshere')
 var selectedLetters = []
-
+var splitInput
+var matchLetters = []
+var wrongLetters = []
 
 
 var alphabet = {
@@ -36,15 +38,6 @@ var alphabet = {
     z: $('#z'),
           }
 
-$.each(alphabet, function(key, value) {
-  value.on('click', function (){
-    selectedLetters.push(key)
-    console.log(selectedLetters)
-  })
-})
-
-
-
 //create function to take input prints it, counts number of letters in input and creates gameboard
 
 var handleInput = function (e){
@@ -57,9 +50,36 @@ var handleInput = function (e){
       letterBoard.css('font-family', 'Inconsolata', 'monospace')
       letterBoard.css('font-size', '56px')
       letterBoard.css('text-align', 'center')
-      var splitInput = input.val().split("")
-      console.log(splitInput)
+  console.log(input.val().split(""))
     }
+
+
+$.each(alphabet, function(key, value) {
+      var splitInput = input.val().split("")
+      value.on('click', function (){
+        selectedLetters.push(key)
+        console.log(selectedLetters)
+        for (i = 0; i < selectedLetters.length; i++)
+          if (input.val().split("").includes(selectedLetters[i])) {
+        console.log('found a match')
+          matchLetters.push(selectedLetters[i])
+          } else {
+        console.log('no match')
+        wrongLetters.push(selectedLetters[i])
+            }
+      })
+    })
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*  for (i = 0; i < splitInput.length; i++) {
