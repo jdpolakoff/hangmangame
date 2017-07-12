@@ -1,8 +1,26 @@
 console.log('im linked')
 
-var input = $('#enterword')
+var input = $('input')
+var button = $('button')
 
-console.log(input.val())
+//create function to take input and print it
+var handleInput = function (e){
+  e.preventDefault()
+  console.log(input.val())
+}
 
-//create an event listener that takes in input and also generates empty divs for set number of letters
-button.on
+//event listener for input to be printed when button pressed
+button.on('click', handleInput)
+
+//create function that counts number of letters in input and creates gameboard
+
+
+//create function that compares clicked letters to input
+  //if clicked letter === letter in input, then put it in gameboard
+  //if clicked letter !== letter in input, put it in loser's pile and toggle image
+
+
+//create event listeners on all letters
+
+
+//create

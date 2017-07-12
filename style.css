@@ -44,6 +44,15 @@ h1 {
   border-style: dotted;
 }
 
+.loserspile {
+  vertical-align: bottom;
+  height: 100px;
+  width: 500px;
+  border-style: dotted;
+  margin-top: 300px;
+  border-radius: 25px;
+}
+
 .letterselector {
   height: 100px;
   width: 500px;
@@ -79,11 +88,15 @@ h1 {
 }
 
 input {
-  border-style: dotted;
-}
-
-#enterword {
+  border-radius: 25px;
   width: 100%;
   font-size: 18px;
   font-family: 'Inconsolata', monospace;
 }
+
+ button {
+   width: 40%;
+   font-family: 'Inconsolata', monospace;
+   border-radius: 25px;
+   font-size: 16px
+ }
