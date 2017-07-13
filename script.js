@@ -152,7 +152,7 @@ $.each(alphabet, function(key, value) {
         console.log(splitInput)
         selectedLetters.push(key)
         console.log(selectedLetters)
-        value.css('color', 'white')
+        value.css('visibility', 'hidden')
         for (i = 0; i < selectedLetters.length; i++)
           if (splitInput.includes(selectedLetters[i])) {
           console.log('found a match')
