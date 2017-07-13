@@ -149,6 +149,8 @@ var renderMan = function () {
             gameboard.css('background-image', "url('hangman8.png')")
             $('html').css('background', '#e83f33')
             $('h1').text('You Lose :( ')
+            gameStarted = false
+            $('.letters').css('visibility', 'hidden')
             break;
             }
 }
