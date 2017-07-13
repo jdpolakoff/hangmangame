@@ -14,6 +14,7 @@ var uniqueMatchLetters = []
 var countspaces
 var gameStarted = false
 var uniqueInputArray = []
+var h1 = $('.headline')
 
 var alphabet = {
     a: $('#a'),
@@ -107,7 +108,7 @@ var renderLetters = function() {
   letterBoard.text(displayWord)
   if (uniqueMatchLetters.length === uniqueInputArray.length){
     $('html').css('background', '#b5efa5')
-    $('h1').text('You Win :) ')
+    h1.text('You Win :) ')
   }
 }
 
@@ -116,27 +117,33 @@ var renderMan = function () {
       switch (uniqueWrongLetters.length){
           case 1:
             gameboard.css('background-image', "url('hangman2.png')")
-            $('h1').text('Six misses left')
+            h1.html('<span id="number">Six</span> misses left')
+            $('#number').css('color', '#e83f33')
             break;
           case 2:
             gameboard.css('background-image', "url('hangman3.png')")
-            $('h1').text('Five misses left')
+            h1.html('<span id="number">Five</span> misses left')
+            $('#number').css('color', '#e83f33')
             break;
           case 3:
             gameboard.css('background-image', "url('hangman4.png')")
-            $('h1').text('Four misses left')
+            h1.html('<span id="number">Four</span> misses left')
+            $('#number').css('color', '#e83f33')
             break;
           case 4:
             gameboard.css('background-image', "url('hangman5.png')")
-            $('h1').text('Three misses left')
+            h1.html('<span id="number">Three</span> misses left')
+            $('#number').css('color', '#e83f33')
             break;
           case 5:
             gameboard.css('background-image', "url('hangman6.png')")
-            $('h1').text('Two misses left')
+            h1.html('<span id="number">Two</span> misses left')
+            $('#number').css('color', '#e83f33')
             break;
           case 6:
             gameboard.css('background-image', "url('hangman7.png')")
-            $('h1').text('One miss left. Choose wisely.')
+            h1.html('<span id="number">One</span> miss left. Choose wisely.')
+            $('#number').css('color', '#e83f33')
             break;
           case 7:
             gameboard.css('background-image', "url('hangman8.png')")
