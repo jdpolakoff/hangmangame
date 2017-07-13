@@ -13,6 +13,7 @@ var uniqueWrongLetters = []
 var uniqueMatchLetters = []
 var countspaces
 var gameStarted = false
+var uniqueInputArray = []
 
 var alphabet = {
     a: $('#a'),
@@ -53,6 +54,9 @@ var alphabet = {
 var handleInput = function (e){
   gameStarted = true
   splitInput = input.val().split("")
+  uniqueInputArray = splitInput.filter(function(elem, index, self){
+    return index == self.indexOf(elem) && elem !== " "
+  })
   var invalidInput = splitInput.some(function(letter){
     return !Object.keys(alphabet).includes(letter) && letter !== " "
   })
@@ -99,7 +103,7 @@ var renderLetters = function() {
   })
   var displayWord = displayLetters.join('')
   letterBoard.text(displayWord)
-  if (uniqueMatchLetters.length === splitInput.length - countspaces){
+  if (uniqueMatchLetters.length === uniqueInputArray.length){
     $('html').css('background', '#b5efa5')
     $('h1').text('You Win :) ')
   }
