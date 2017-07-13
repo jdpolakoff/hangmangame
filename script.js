@@ -56,8 +56,8 @@ var handleInput = function (e){
       letterBoard.css('font-size', '56px')
       letterBoard.css('text-align', 'center')
   console.log(splitInput)
-    }
 
+    }
 //$(.letters)
 
 // .every if every letter is in there, is every letter in split input in matchArray
@@ -75,6 +75,10 @@ var renderLetters = function() {
   })
   var displayWord = displayLetters.join('')
   letterBoard.text(displayWord)
+  if (uniqueMatchLetters.length === splitInput.length){
+    $('html').css('background', '#b5efa5')
+    $('h1').text('You Win :) ')
+  }
 }
 
 
@@ -100,7 +104,7 @@ var renderMan = function () {
             break;
           case 7:
             gameboard.css('background-image', "url('hangman8.png')")
-            $('html').css('background', '#e83f33');
+            $('html').css('background', '#e83f33')
             $('h1').text('You Lose :( ')
             break;
             }
@@ -116,7 +120,7 @@ $.each(alphabet, function(key, value) {
           if (splitInput.includes(selectedLetters[i])) {
           console.log('found a match')
           matchLetters.push(selectedLetters[i])
-          uniquematchLetters = matchLetters.filter(function(elem, index, self){
+          uniqueMatchLetters = matchLetters.filter(function(elem, index, self){
             return index == self.indexOf(elem)
           })
           renderLetters()
