@@ -8,6 +8,9 @@ var splitInput = []
 var selectedLetters = []
 var matchLetters = []
 var wrongLetters = []
+var gameboard = $('.gameboard')
+var uniqueWrongLetters = []
+var uniqueMatchLetters = []
 
 
 var alphabet = {
@@ -42,6 +45,7 @@ var alphabet = {
 //create function to take input prints it, counts number of letters in input and creates gameboard
 
 var handleInput = function (e){
+  splitInput = input.val().split("")
   e.preventDefault()
   console.log(input.val())
   input.val().length
@@ -51,8 +55,7 @@ var handleInput = function (e){
       letterBoard.css('font-family', 'Inconsolata', 'monospace')
       letterBoard.css('font-size', '56px')
       letterBoard.css('text-align', 'center')
-  console.log(input.val().split(""))
-      splitInput = input.val().split("")
+  console.log(splitInput)
     }
 
 //$(.letters)
@@ -74,6 +77,35 @@ var renderLetters = function() {
   letterBoard.text(displayWord)
 }
 
+
+var renderMan = function () {
+      switch (uniqueWrongLetters.length){
+          case 1:
+            gameboard.css('background-image', "url('hangman2.png')")
+            break;
+          case 2:
+            gameboard.css('background-image', "url('hangman3.png')")
+            break;
+          case 3:
+            gameboard.css('background-image', "url('hangman4.png')")
+            break;
+          case 4:
+            gameboard.css('background-image', "url('hangman5.png')")
+            break;
+          case 5:
+            gameboard.css('background-image', "url('hangman6.png')")
+            break;
+          case 6:
+            gameboard.css('background-image', "url('hangman7.png')")
+            break;
+          case 7:
+            gameboard.css('background-image', "url('hangman8.png')")
+            $('html').css('background', '#e83f33');
+            $('h1').text('You Lose :( ')
+            break;
+            }
+}
+
 $.each(alphabet, function(key, value) {
       value.on('click', function (){
         console.log(splitInput)
@@ -84,17 +116,22 @@ $.each(alphabet, function(key, value) {
           if (splitInput.includes(selectedLetters[i])) {
           console.log('found a match')
           matchLetters.push(selectedLetters[i])
+          uniquematchLetters = matchLetters.filter(function(elem, index, self){
+            return index == self.indexOf(elem)
+          })
           renderLetters()
           } else {
           console.log('no match')
           wrongLetters.push(selectedLetters[i])
+          uniqueWrongLetters = wrongLetters.filter(function(elem, index, self){
+            return index == self.indexOf(elem)
+          })
           renderLetters()
-          // renderMan() update dom with images
+          renderMan()
           }
+
       })
     })
-
-
 
 
 
