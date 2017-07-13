@@ -53,7 +53,7 @@ var alphabet = {
 
 var handleInput = function (e){
   gameStarted = true
-  splitInput = input.val().split("")
+  splitInput = input.val().toLowerCase().split("")
   uniqueInputArray = splitInput.filter(function(elem, index, self){
     return index == self.indexOf(elem) && elem !== " "
   })
