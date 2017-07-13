@@ -12,7 +12,7 @@ var gameboard = $('.gameboard')
 var uniqueWrongLetters = []
 var uniqueMatchLetters = []
 var countspaces
-
+var gameStarted = false
 
 var alphabet = {
     a: $('#a'),
@@ -51,13 +51,21 @@ var alphabet = {
 //create function to take input prints it, counts number of letters in input and creates gameboard
 
 var handleInput = function (e){
+  gameStarted = true
   splitInput = input.val().split("")
+  var invalidInput = splitInput.some(function(letter){
+    return !Object.keys(alphabet).includes(letter) && letter !== " "
+  })
+  if (invalidInput){
+    alert('Please enter a word')
+    return
+  }
   e.preventDefault()
   console.log(input.val())
   input.val().length
   console.log(input.val().length)
   console.log(splitInput)
-  for (i = 0; i < splitInput.length; i++)
+  for (i = 0; i < splitInput.length; i++) {
     if (splitInput[i] !== " "){
     letterBoard.append('_')
       letterBoard.css('font-family', 'Inconsolata', 'monospace')
@@ -68,8 +76,13 @@ var handleInput = function (e){
       countspaces = 0
       countspaces++
     }
+    if (i % 15 === 0 && i !== 0){
+      letterBoard.append('\n')
+      console.log('divisible by 15')
+    }
   }
-//$(.letters)
+}
+//$(.lters)
 
 // .every if every letter is in there, is every letter in split input in matchArray
 
@@ -129,6 +142,7 @@ var renderMan = function () {
 
 $.each(alphabet, function(key, value) {
       value.on('click', function (){
+        if (!gameStarted) return
         console.log(splitInput)
         selectedLetters.push(key)
         console.log(selectedLetters)
@@ -153,6 +167,12 @@ $.each(alphabet, function(key, value) {
 
       })
     })
+
+
+
+
+
+
 
     //event listener for input to be printed when button pressed
     button.on('click', handleInput)

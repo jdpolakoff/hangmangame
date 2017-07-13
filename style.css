@@ -33,7 +33,7 @@ h1 {
 }
 
 .gameboard {
-  height: 400px;
+  min-height: 400px;
   width: 500px;
   background-color: white;
   display: flex;
@@ -47,7 +47,7 @@ h1 {
 
 .wordgoeshere {
   vertical-align: bottom;
-  height: 100px;
+  min-width: height: 100px;
   width: 500px;
   border-style: dotted;
   margin-top: 300px;
