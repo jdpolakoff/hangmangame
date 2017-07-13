@@ -11,6 +11,7 @@ var wrongLetters = []
 var gameboard = $('.gameboard')
 var uniqueWrongLetters = []
 var uniqueMatchLetters = []
+var countspaces
 
 
 var alphabet = {
@@ -42,6 +43,11 @@ var alphabet = {
     z: $('#z'),
           }
 
+//issues --- getting uniqueMatchLetters to equal solutions with spaces
+//getting spaces in initial game layout
+// getting the letter board to format when more than 17 characters
+// making the game static if there is no text input
+
 //create function to take input prints it, counts number of letters in input and creates gameboard
 
 var handleInput = function (e){
@@ -50,14 +56,19 @@ var handleInput = function (e){
   console.log(input.val())
   input.val().length
   console.log(input.val().length)
-  for (i = 0; i < input.val().length; i++)
+  console.log(splitInput)
+  for (i = 0; i < splitInput.length; i++)
+    if (splitInput[i] !== " "){
     letterBoard.append('_')
       letterBoard.css('font-family', 'Inconsolata', 'monospace')
       letterBoard.css('font-size', '56px')
       letterBoard.css('text-align', 'center')
-  console.log(splitInput)
-
+    } else if (splitInput[i] === " ") {
+      letterBoard.append(' ')
+      countspaces = 0
+      countspaces++
     }
+  }
 //$(.letters)
 
 // .every if every letter is in there, is every letter in split input in matchArray
@@ -75,7 +86,7 @@ var renderLetters = function() {
   })
   var displayWord = displayLetters.join('')
   letterBoard.text(displayWord)
-  if (uniqueMatchLetters.length === splitInput.length){
+  if (uniqueMatchLetters.length === splitInput.length - countspaces){
     $('html').css('background', '#b5efa5')
     $('h1').text('You Win :) ')
   }
@@ -86,21 +97,27 @@ var renderMan = function () {
       switch (uniqueWrongLetters.length){
           case 1:
             gameboard.css('background-image', "url('hangman2.png')")
+            $('h1').text('Six misses left')
             break;
           case 2:
             gameboard.css('background-image', "url('hangman3.png')")
+            $('h1').text('Five misses left')
             break;
           case 3:
             gameboard.css('background-image', "url('hangman4.png')")
+            $('h1').text('Four misses left')
             break;
           case 4:
             gameboard.css('background-image', "url('hangman5.png')")
+            $('h1').text('Three misses left')
             break;
           case 5:
             gameboard.css('background-image', "url('hangman6.png')")
+            $('h1').text('Two misses left')
             break;
           case 6:
             gameboard.css('background-image', "url('hangman7.png')")
+            $('h1').text('One miss left. Choose wisely.')
             break;
           case 7:
             gameboard.css('background-image', "url('hangman8.png')")
@@ -137,7 +154,12 @@ $.each(alphabet, function(key, value) {
       })
     })
 
+    //event listener for input to be printed when button pressed
+    button.on('click', handleInput)
 
+    //event listener to refresh
+    refresh.on('click', function () {
+      location.reload()})
 
 
 
@@ -162,12 +184,6 @@ $.each(alphabet, function(key, value) {
 
 
 */
-//event listener for input to be printed when button pressed
-button.on('click', handleInput)
-
-//event listener to refresh
-refresh.on('click', function () {
-  location.reload()})
 
 
 
