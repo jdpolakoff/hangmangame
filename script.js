@@ -109,6 +109,7 @@ var renderLetters = function() {
   if (uniqueMatchLetters.length === uniqueInputArray.length){
     $('html').css('background', '#b5efa5')
     h1.text('You Win :) ')
+    gameStarted = false
   }
 }
 
@@ -182,11 +183,6 @@ $.each(alphabet, function(key, value) {
 
       })
     })
-
-
-
-
-
 
 
     //event listener for input to be printed when button pressed
