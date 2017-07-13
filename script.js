@@ -1,7 +1,7 @@
 console.log('im linked')
 
 var input = $('input')
-var button = $('button')
+var button = $('.button')
 var refresh = $('.refresh')
 var letterBoard = $('.wordgoeshere')
 var splitInput = []
@@ -85,6 +85,8 @@ var handleInput = function (e){
       console.log('divisible by 15')
     }
   }
+  input.css('visibility', 'hidden')
+  button.prop('disabled', true)
 }
 //$(.lters)
 
