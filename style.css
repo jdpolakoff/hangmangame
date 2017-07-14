@@ -47,7 +47,7 @@ h1 {
 
 .wordgoeshere {
   vertical-align: bottom;
-  min-width: height: 100px;
+  min-height: 100px;
   width: 500px;
   border-style: dotted;
   margin-top: 300px;
@@ -87,7 +87,7 @@ h1 {
   border-radius: 25px;
   border-style: dotted;
   background-color: white;
-  text-decoration: bold;
+  font-weight: bold;
 }
 
 input {
