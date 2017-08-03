@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Inconsolata');
+/*Nice job utilizing custom web fonts*/
 
 html {
   background: #f9f490;
@@ -105,3 +106,5 @@ input {
    font-size: 16px;
    cursor: pointer;
  }
+
+ /*Very well-formatted, semantic CSS*/

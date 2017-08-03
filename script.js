@@ -1,20 +1,22 @@
 console.log('im linked')
+// Generally, remove console.log's meant for testing before pushing to production
 
 var input = $('input')
 var button = $('.button')
 var refresh = $('.refresh')
 var letterBoard = $('.wordgoeshere')
+var gameboard = $('.gameboard')
+var h1 = $('.headline')
+// Stylistically, I would keep all variables storing DOM elements together
 var splitInput = []
 var selectedLetters = []
 var matchLetters = []
 var wrongLetters = []
-var gameboard = $('.gameboard')
 var uniqueWrongLetters = []
 var uniqueMatchLetters = []
 var countspaces
 var gameStarted = false
 var uniqueInputArray = []
-var h1 = $('.headline')
 
 var alphabet = {
     a: $('#a'),
@@ -52,11 +54,15 @@ var alphabet = {
 
 //create function to take input prints it, counts number of letters in input and creates gameboard
 
+// Remove psuedo-code from production code or move each line next to the code it refers
+// to for future reference
+
 var handleInput = function (e){
   gameStarted = true
   splitInput = input.val().toLowerCase().split("")
   uniqueInputArray = splitInput.filter(function(elem, index, self){
     return index == self.indexOf(elem) && elem !== " "
+    // Good use of filter to isolate unique values
   })
   var invalidInput = splitInput.some(function(letter){
     return !Object.keys(alphabet).includes(letter) && letter !== " "
@@ -70,16 +76,19 @@ var handleInput = function (e){
   input.val().length
   console.log(input.val().length)
   console.log(splitInput)
+  // Remove console.logs
   for (i = 0; i < splitInput.length; i++) {
     if (splitInput[i] !== " "){
     letterBoard.append('_')
       letterBoard.css('font-family', 'Inconsolata', 'monospace')
       letterBoard.css('font-size', '56px')
       letterBoard.css('text-align', 'center')
+      // Couldn't you just apply the above css styling to the DOM element in your style.css file?
     } else if (splitInput[i] === " ") {
       letterBoard.append(' ')
       countspaces = 0
       countspaces++
+      // Is this "countspaces" variable being used / neccessary?
     }
     if (i % 15 === 0 && i !== 0){
       letterBoard.append('\n')
@@ -89,6 +98,8 @@ var handleInput = function (e){
   input.css('visibility', 'hidden')
   button.prop('disabled', true)
 }
+// See if you can break this large "handleInput" function into smaller functions that
+// get called within handleInput but are more targeted and reusable
 //$(.lters)
 
 // .every if every letter is in there, is every letter in split input in matchArray
@@ -163,6 +174,7 @@ $.each(alphabet, function(key, value) {
         selectedLetters.push(key)
         console.log(selectedLetters)
         value.css('visibility', 'hidden')
+        // Put the below logic into a function that is called from this event listener
         for (i = 0; i < selectedLetters.length; i++)
           if (splitInput.includes(selectedLetters[i])) {
           console.log('found a match')
@@ -192,6 +204,8 @@ $.each(alphabet, function(key, value) {
     refresh.on('click', function () {
       location.reload()})
 
+    // While this is acceptable for a simpler game, better practice would be to create
+    // a function that resets the game that is called when "refresh" is clicked
 
 
 

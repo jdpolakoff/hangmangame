@@ -18,7 +18,7 @@
   <body>
 
       <div class="header">
-
+      <!-- Instead of using class 'header', perhaps use HTML5 'header' element tag instead -->
         <h1><span class="headline">Let's Play Hangman</span></h1>
 
       </div>
@@ -31,8 +31,8 @@
       </div>
 
     <form>
-
       <div class = "input">
+        <!-- No spaces around equals signs in HTML, above should be class="input" -->
 
         <input placeholder=" Enter a word! (Or Words)" />
         <button class=button>Let's play!</button>
@@ -44,6 +44,8 @@
 
       <div class="letterselector">
         <p class = letters>
+        <!-- No spaces around equals sign and always put quotations around class name,
+        above should be class="letters" -->
           <span class="letters" id="a"> a </span>
           <span class="letters" id="b"> b </span>
           <span class="letters" id="c"> c </span>
@@ -70,6 +72,8 @@
           <span class="letters" id="x"> x </span>
           <span class="letters" id="y"> y </span>
           <span class="letters" id="z"> z </span>
+          <!-- Think about how you could create each of the above `letters` spans programmatically
+          using JavaScript / jQuery.  -->
         </p>
       </div>
       <script src="script.js"></script>
