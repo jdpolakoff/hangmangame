@@ -244,3 +244,129 @@ $.each(alphabet, function(key, value) {
 
 
 //create
+
+
+
+// If you wanted to refactor into classes, you would define a class with your variables above
+// as attributes and your functions as methods:
+// Note: The below is just an example, don't use it as starter code
+//
+// class Hangman {
+//   constructor() {
+//     this.input = $('input')
+//     this.button = $('.button')
+//     this.refresh = $('.refresh')
+//     this.letterBoard = $('.wordgoeshere')
+//     this.gameboard = $('.gameboard')
+//     this.h1 = $('.headline')
+//     this.splitInput = []
+//     this.selectedLetters = []
+//     this.matchLetters = []
+//     this.wrongLetters = []
+//     this.uniqueWrongLetters = []
+//     this.uniqueMatchLetters = []
+//     this.countspaces
+//     this.gameStarted = false
+//     this.uniqueInputArray = []
+//     this.alphabet = {
+//         a: $('#a'),
+//         b: $('#b'),
+//         c: $('#c'),
+//         d: $('#d'),
+//         e: $('#e'),
+//         f: $('#f'),
+//         g: $('#g'),
+//         h: $('#h'),
+//         i: $('#i'),
+//         j: $('#j'),
+//         k: $('#k'),
+//         l: $('#l'),
+//         m: $('#m'),
+//         n: $('#n'),
+//         o: $('#o'),
+//         p: $('#p'),
+//         q: $('#q'),
+//         r: $('#r'),
+//         s: $('#s'),
+//         t: $('#t'),
+//         u: $('#u'),
+//         v: $('#v'),
+//         w: $('#w'),
+//         x: $('#x'),
+//         y: $('#y'),
+//         z: $('#z'),
+//       }
+//       $.each(this.alphabet, function(key, value) {
+//             value.on('click', function (){
+//               if (!gameStarted) return
+//               console.log(splitInput)
+//               this.selectedLetters.push(key)
+//               console.log(selectedLetters)
+//               value.css('visibility', 'hidden')
+//               // Put the below logic into a function that is called from this event listener
+//               for (i = 0; i < this.selectedLetters.length; i++)
+//                 if (this.splitInput.includes(selectedLetters[i])) {
+//                 console.log('found a match')
+//                 this.matchLetters.push(selectedLetters[i])
+//                 this.uniqueMatchLetters = this.matchLetters.filter(function(elem, index, self){
+//                   return index == self.indexOf(elem)
+//                 })
+//                 this.renderLetters()
+//                 } else {
+//                 console.log('no match')
+//                 this.wrongLetters.push(selectedLetters[i])
+//                 this.uniqueWrongLetters = wrongLetters.filter(function(elem, index, self){
+//                   return index == self.indexOf(elem)
+//                 })
+//                 this.renderLetters()
+//                 this.renderMan()
+//                 }
+//
+//             })
+//           })
+//   }
+//
+//   renderMan() {
+//     switch (this.uniqueWrongLetters.length){
+//         case 1:
+//           this.gameboard.css('background-image', "url('hangman2.png')")
+//           this.h1.html('<span id="number">Six</span> misses left')
+//           $('#number').css('color', '#e83f33')
+//           break;
+//         case 2:
+//           this.gameboard.css('background-image', "url('hangman3.png')")
+//           this.h1.html('<span id="number">Five</span> misses left')
+//           $('#number').css('color', '#e83f33')
+//           break;
+//         case 3:
+//           this.gameboard.css('background-image', "url('hangman4.png')")
+//           this.h1.html('<span id="number">Four</span> misses left')
+//           $('#number').css('color', '#e83f33')
+//           break;
+//         case 4:
+//           this.gameboard.css('background-image', "url('hangman5.png')")
+//           this.h1.html('<span id="number">Three</span> misses left')
+//           $('#number').css('color', '#e83f33')
+//           break;
+//         case 5:
+//           this.gameboard.css('background-image', "url('hangman6.png')")
+//           this.h1.html('<span id="number">Two</span> misses left')
+//           $('#number').css('color', '#e83f33')
+//           break;
+//         case 6:
+//           this.gameboard.css('background-image', "url('hangman7.png')")
+//           this.h1.html('<span id="number">One</span> miss left. Choose wisely.')
+//           $('#number').css('color', '#e83f33')
+//           break;
+//         case 7:
+//           this.gameboard.css('background-image', "url('hangman8.png')")
+//           this.$('html').css('background', '#e83f33')
+//           $('h1').text('You Lose :( ')
+//           this.gameStarted = false
+//           $('.letters').css('visibility', 'hidden')
+//           break;
+//           }
+//   }
+//
+//   etc....
+// }
